@@ -1,0 +1,142 @@
+﻿@model IEnumerable<MVCServis.Areas.SYADMIN.Models.TeknikServisGiris>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/SYADMIN/Views/Shared/_LayoutSYadmin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Ariza.ArizaKodu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Belirti.BelirtiKodu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Durum.DurumKodu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Onarim.OnarimKodu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UrunKodu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TakipNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TeknisyenKodu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TeknisyenAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Aciklama)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TAciklama)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sikayet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FaturaTutarS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FaturaTutarM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DurumYorum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MusteriYorum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MusteriGeriDonus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SeriNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Imei)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ServisUrunTanim)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ariza.ArizaKodu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Belirti.BelirtiKodu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Durum.DurumKodu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Onarim.OnarimKodu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UrunKodu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TakipNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TeknisyenKodu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TeknisyenAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Aciklama)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TAciklama)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sikayet)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FaturaTutarS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FaturaTutarM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DurumYorum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MusteriYorum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MusteriGeriDonus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SeriNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Imei)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServisUrunTanim)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

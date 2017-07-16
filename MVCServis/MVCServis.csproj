@@ -1,0 +1,576 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.3.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.3.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{125C8ADD-390E-41BE-ABDF-A0EFD84F3597}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MVCServis</RootNamespace>
+    <AssemblyName>MVCServis</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.1.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.1.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.1.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.1.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MusteriTipsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SharedController.cs" />
+    <Compile Include="Areas\SYADMIN\Controllers\BankoGirisController.cs" />
+    <Compile Include="Areas\SYADMIN\Controllers\BolumsController.cs" />
+    <Compile Include="Areas\SYADMIN\Controllers\HomeController.cs" />
+    <Compile Include="Areas\SYADMIN\Controllers\KullanicilarController.cs" />
+    <Compile Include="Areas\SYADMIN\Controllers\MusteriTipController.cs" />
+    <Compile Include="Areas\SYADMIN\Controllers\SharedController.cs" />
+    <Compile Include="Areas\SYADMIN\Controllers\TeknikerAtaController.cs" />
+    <Compile Include="Areas\SYADMIN\Controllers\teknikerController.cs" />
+    <Compile Include="Areas\SYADMIN\Controllers\TeknikServisController.cs" />
+    <Compile Include="Areas\SYADMIN\Controllers\YetkisController.cs" />
+    <Compile Include="Areas\SYADMIN\DAL\SYADMINContext.cs" />
+    <Compile Include="Areas\SYADMIN\Models\BankoGiris.cs" />
+    <Compile Include="Areas\SYADMIN\Models\Bolum.cs" />
+    <Compile Include="Areas\SYADMIN\Models\Garanti.cs" />
+    <Compile Include="Areas\SYADMIN\Models\Kullanicilar.cs" />
+    <Compile Include="Areas\SYADMIN\Models\MusteriTip.cs" />
+    <Compile Include="Areas\SYADMIN\Models\TAriza.cs" />
+    <Compile Include="Areas\SYADMIN\Models\TBelirti.cs" />
+    <Compile Include="Areas\SYADMIN\Models\TDurum.cs" />
+    <Compile Include="Areas\SYADMIN\Models\Tekniker.cs" />
+    <Compile Include="Areas\SYADMIN\Models\TeknikServisGiris.cs" />
+    <Compile Include="Areas\SYADMIN\Models\TOnarim.cs" />
+    <Compile Include="Areas\SYADMIN\Models\TUrun.cs" />
+    <Compile Include="Areas\SYADMIN\Models\UserG.cs" />
+    <Compile Include="Areas\SYADMIN\Models\UserYorum.cs" />
+    <Compile Include="Areas\SYADMIN\Models\Yetki.cs" />
+    <Compile Include="Areas\SYADMIN\SYADMINAreaRegistration.cs" />
+    <Compile Include="Areas\SYADMIN\Unit\baseController.cs" />
+    <Compile Include="Connected Services\CaferServis\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\TCNO\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\TcSorgula\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\TstServ1\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ServislerController.cs" />
+    <Compile Include="Controllers\UserGController.cs" />
+    <Compile Include="Controllers\UserYorumController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CaferServis\Cafer.wsdl" />
+    <Content Include="Connected Services\CaferServis\MVCServis.CaferServis.HelloWorldResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CaferServis\MVCServis.CaferServis.TBL_DERSPROG.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CaferServis\MVCServis.CaferServis.tumDerslerResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\TCNO\configuration91.svcinfo" />
+    <None Include="Connected Services\TCNO\configuration.svcinfo" />
+    <None Include="Connected Services\CaferServis\Cafer.disco" />
+    <None Include="Connected Services\CaferServis\configuration91.svcinfo" />
+    <None Include="Connected Services\CaferServis\configuration.svcinfo" />
+    <None Include="Connected Services\CaferServis\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Connected Services\TCNO\MVCServis.TCNO.TCKimlikNoDogrulaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\TCNO\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\TcSorgula\configuration91.svcinfo" />
+    <None Include="Connected Services\TcSorgula\configuration.svcinfo" />
+    <Content Include="Connected Services\TcSorgula\MVCServis.TcSorgula.TCKimlikNoDogrulaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\TcSorgula\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Connected Services\TstServ1\MVCServis.TstServ1.HelloWorldResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\TstServ1\MVCServis.TstServ1.B_TBL_HASTANELER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\TstServ1\MVCServis.TstServ1.hastanelerResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\TCNO\KPSPublic.wsdl" />
+    <None Include="Connected Services\TcSorgula\KPSPublic.wsdl" />
+    <None Include="Connected Services\TstServ1\Test.disco" />
+    <None Include="Connected Services\TstServ1\configuration91.svcinfo" />
+    <None Include="Connected Services\TstServ1\configuration.svcinfo" />
+    <None Include="Connected Services\TstServ1\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Content\animate.css" />
+    <Content Include="Content\blue.css" />
+    <Content Include="Content\Giris.css" />
+    <Content Include="Content\icomoon.css" />
+    <Content Include="Content\navbaradmin.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\footer.css" />
+    <Content Include="Content\Menu.css" />
+    <Content Include="Content\Navbar.css" />
+    <Content Include="Content\slider.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="Content\Tablolar.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\icomoon.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Anasayfa.cshtml" />
+    <Content Include="Areas\SYADMIN\Views\web.config" />
+    <Content Include="Areas\SYADMIN\Views\Shared\_LayoutSYadmin.cshtml" />
+    <Content Include="Areas\SYADMIN\Views\Bolums\Create.cshtml" />
+    <Content Include="Areas\SYADMIN\Views\Bolums\Delete.cshtml" />
+    <Content Include="Areas\SYADMIN\Views\Bolums\Details.cshtml" />
+    <Content Include="Areas\SYADMIN\Views\Bolums\Edit.cshtml" />
+    <Content Include="Areas\SYADMIN\Views\Bolums\Index.cshtml" />
+    <Content Include="Areas\SYADMIN\Views\Home\Giris.cshtml" />
+    <Content Include="Areas\SYADMIN\Views\Yetkis\Create.cshtml" />
+    <Content Include="Areas\SYADMIN\Views\Yetkis\Delete.cshtml" />
+    <Content Include="Areas\SYADMIN\Views\Yetkis\Details.cshtml" />
+    <Content Include="Areas\SYADMIN\Views\Yetkis\Edit.cshtml" />
+    <Content Include="Areas\SYADMIN\Views\Yetkis\Index.cshtml" />
+    <Content Include="Areas\SYADMIN\Views\Kullanicilar\kaydet.cshtml" />
+    <Content Include="Areas\SYADMIN\Views\Kullanicilar\Liste.cshtml" />
+    <Content Include="Areas\SYADMIN\Views\Home\Index.cshtml" />
+    <Content Include="Areas\SYADMIN\Views\Home\Kullanici.cshtml" />
+    <Content Include="Areas\SYADMIN\Views\Shared\_Partial.cshtml" />
+    <Content Include="Areas\SYADMIN\Views\tekniker\Delete.cshtml" />
+    <Content Include="Areas\SYADMIN\Views\tekniker\Details.cshtml" />
+    <Content Include="Areas\SYADMIN\Views\tekniker\Edit.cshtml" />
+    <Content Include="Areas\SYADMIN\Views\tekniker\Index.cshtml" />
+    <Content Include="Areas\SYADMIN\Views\tekniker\Create.cshtml" />
+    <Content Include="Areas\SYADMIN\Views\Kullanicilar\Edit.cshtml" />
+    <Content Include="Areas\SYADMIN\Views\Kullanicilar\Delete.cshtml" />
+    <Content Include="Areas\SYADMIN\Views\Kullanicilar\Details.cshtml" />
+    <Content Include="Areas\SYADMIN\Views\MusteriTip\Create.cshtml" />
+    <Content Include="Areas\SYADMIN\Views\MusteriTip\Delete.cshtml" />
+    <Content Include="Areas\SYADMIN\Views\MusteriTip\Details.cshtml" />
+    <Content Include="Areas\SYADMIN\Views\MusteriTip\Edit.cshtml" />
+    <Content Include="Areas\SYADMIN\Views\MusteriTip\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\MusteriTips\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\MusteriTips\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\MusteriTips\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\MusteriTips\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\MusteriTips\Index.cshtml" />
+    <Content Include="Areas\SYADMIN\Views\BankoGiris\Create.cshtml" />
+    <Content Include="Areas\SYADMIN\Views\BankoGiris\Delete.cshtml" />
+    <Content Include="Areas\SYADMIN\Views\BankoGiris\Details.cshtml" />
+    <Content Include="Areas\SYADMIN\Views\BankoGiris\Edit.cshtml" />
+    <Content Include="Areas\SYADMIN\Views\BankoGiris\Index.cshtml" />
+    <Content Include="Areas\SYADMIN\Views\TeknikServis\Index.cshtml" />
+    <Content Include="Areas\SYADMIN\Views\TeknikServis\Kaydet.cshtml" />
+    <Content Include="Areas\SYADMIN\Views\TeknikServis\Listele.cshtml" />
+    <Content Include="Areas\SYADMIN\Views\TeknikerAta\Listele.cshtml" />
+    <Content Include="Areas\SYADMIN\Views\TeknikerAta\Index.cshtml" />
+    <Content Include="fonts\icomoon.eot" />
+    <Content Include="fonts\icomoon.ttf" />
+    <Content Include="fonts\icomoon.woff" />
+    <None Include="Connected Services\TstServ1\Test.wsdl" />
+    <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="img\34.jpg" />
+    <Content Include="img\44.jpg" />
+    <Content Include="img\a22.png" />
+    <Content Include="img\b05.png" />
+    <Content Include="img\blue.jpg" />
+    <Content Include="img\buy-now_banner_galaxy-s8_m.jpg" />
+    <Content Include="img\c-navigator-horizontal.png" />
+    <Content Include="img\c-phone-horizontal.png" />
+    <Content Include="img\c-slide-1.jpg" />
+    <Content Include="img\c-slide-3.jpg" />
+    <Content Include="img\clk2.png" />
+    <Content Include="img\colorful.jpg" />
+    <Content Include="img\galaxy-s8_performance_kv_phone.png" />
+    <Content Include="img\hand.png" />
+    <Content Include="img\images.jpg" />
+    <Content Include="img\img_1.jpg" />
+    <Content Include="img\img_10.jpg" />
+    <Content Include="img\img_7.jpg" />
+    <Content Include="img\img_8.jpg" />
+    <Content Include="img\img_9.jpg" />
+    <Content Include="img\loading.gif" />
+    <Content Include="img\pressure_touch.mp4" />
+    <Content Include="img\purple.jpg" />
+    <Content Include="img\red.jpg" />
+    <Content Include="img\samsunglogo.png" />
+    <Content Include="img\sm-buyuk\galaxy-s8_accessibility.jpg" />
+    <Content Include="img\sm-buyuk\galaxy-s8_camera-capture_night-ft.png" />
+    <Content Include="img\sm-buyuk\galaxy-s8_camera-hdr_ft.png" />
+    <Content Include="img\sm-buyuk\galaxy-s8_camera-selfie_ft-new.png" />
+    <Content Include="img\sm-buyuk\galaxy-s8_intelligence.png" />
+    <Content Include="img\sm-buyuk\galaxy-s8_performance_kv_phone.png" />
+    <Content Include="img\sm-buyuk\galaxy-s8_performance_power.mp4" />
+    <Content Include="img\sm-buyuk\galaxy-s8_performance_sim_tray_expandable.jpg" />
+    <Content Include="img\sm-buyuk\galaxy-s8_performance_standard.mp4" />
+    <Content Include="img\sm-buyuk\galaxy-s8_security.png" />
+    <Content Include="img\sm-buyuk\google-on-your-smartphone-1796337.jpg" />
+    <Content Include="img\sm-buyuk\google-on-your-smartphone-1796337_1920.jpg" />
+    <Content Include="img\sm-buyuk\image-in-the-image-2204798.jpg" />
+    <Content Include="img\sm-buyuk\image-in-the-image-2204798_1280.jpg" />
+    <Content Include="img\sm-buyuk\image-in-the-image-2204798_1920.jpg" />
+    <Content Include="img\sm-buyuk\ipad-605439_1920.jpg" />
+    <Content Include="img\sm-buyuk\ipad-608206_1920.jpg" />
+    <Content Include="img\sm-buyuk\mobile-1726138.jpg" />
+    <Content Include="img\sm-buyuk\mobile-1726138_1920.jpg" />
+    <Content Include="img\sm-buyuk\mobile-2262928.jpg" />
+    <Content Include="img\sm-buyuk\mobile-2262928_1280.jpg" />
+    <Content Include="img\sm-buyuk\mobile-605422_1920.jpg" />
+    <Content Include="img\sm-buyuk\modern-analyst-1317115_1920.jpg" />
+    <Content Include="img\sm-buyuk\music-on-your-smartphone-1796117.jpg" />
+    <Content Include="img\sm-buyuk\music-on-your-smartphone-1796117_1920.jpg" />
+    <Content Include="img\sm-buyuk\samsung-galaxy-1120726_1920.jpg" />
+    <Content Include="img\sm-buyuk\tablet-791051_1920.jpg" />
+    <Content Include="img\sm-buyuk\workplace-1949404.jpg" />
+    <Content Include="img\sm-buyuk\workplace-1949404_1920.jpg" />
+    <Content Include="Scripts\AdminNavbar.js" />
+    <Content Include="Scripts\Arkaplan.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-3.1.1.js" />
+    <Content Include="Scripts\jquery-3.1.1.min.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.backstretch.js" />
+    <Content Include="Scripts\jquery.easing.1.3.js" />
+    <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\jquery.style.switcher.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jquery.waypoints.min.js" />
+    <Content Include="Scripts\jssor.slider-24.1.2.min.js" />
+    <Content Include="Scripts\main.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\MusteriTip.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\slider.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_LayoutServis.cshtml" />
+    <Content Include="Views\Home\Mobilephones.cshtml" />
+    <Content Include="Views\Home\Tablets.cshtml" />
+    <Content Include="Views\Home\Accessories.cshtml" />
+    <Content Include="Views\Home\Services.cshtml" />
+    <Content Include="Views\UserG\UserGiris.cshtml" />
+    <Content Include="Views\UserG\UserKayit.cshtml" />
+    <Content Include="Views\UserYorum\Index.cshtml" />
+    <Content Include="Views\Servisler\Index.cshtml" />
+    <Content Include="Views\Servisler\TcSorgu.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Content\admin\" />
+    <Folder Include="Yuklemeler\UserFoto\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.1.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\CaferServis\" />
+    <WCFMetadataStorage Include="Connected Services\TCNO\" />
+    <WCFMetadataStorage Include="Connected Services\TcSorgula\" />
+    <WCFMetadataStorage Include="Connected Services\TstServ1\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1902</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:1902/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.3.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.3.0\build\Microsoft.Net.Compilers.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

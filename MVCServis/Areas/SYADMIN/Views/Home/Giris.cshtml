@@ -1,0 +1,54 @@
+﻿@using MVCServis.Areas.SYADMIN.Models
+@model MVCServis.Areas.SYADMIN.Models.Kullanicilar
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.TitleGiris</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="container">
+        <div class="row" id="pwd-container">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <section class="login-form">
+                    <form method="post" action="#" role="login">
+                        <img src="~/img/samsunglogo.png" class="img-responsive" alt="" />
+                        <input type="email" name="mail" placeholder="Email" required class="form-control input-lg" />
+                        @*<div class="form-group">
+                            @Html.LabelFor(m=>m.email,new { @class = "col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.email, new { @class = "form-control input-lg" })
+                                @Html.ValidationMessageFor(m => m.email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.sifre, new { @class = "col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.sifre, new { @class = "form-control input-lg" })
+                                @Html.ValidationMessageFor(m => m.sifre, "", new { @class = "text-danger" })
+                            </div>
+                        </div>*@
+                        <input type="password" name="sifre" class="form-control input-lg" id="password" placeholder="Şifre" required="" />
+                        <div class="pwstrength_viewport_progress"></div>
+                        <button type="submit" name="go" class="btn btn-lg btn-primary btn-block">Giris</button>
+                        <div>
+                            <a href="#">Hesap Oluştur</a> or <a href="#">Şifre Sıfırlama</a>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>

@@ -1,0 +1,35 @@
+﻿@model MVCServis.Areas.SYADMIN.Models.tekniker
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/SYADMIN/Views/Shared/_LayoutSYadmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tekniker</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.teknikerNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.teknikerNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.teknikerAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.teknikerAdi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

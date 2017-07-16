@@ -1,0 +1,50 @@
+﻿@model IEnumerable<MVCServis.Areas.SYADMIN.Models.Kullanicilar>
+
+@{
+    ViewBag.Title = "Liste";
+    Layout = "~/Areas/SYADMIN/Views/Shared/_LayoutSYadmin.cshtml";
+}
+
+<h2>Liste</h2>
+
+<p>
+    @Html.ActionLink("Create New", "kaydet")
+    <br />
+    @Html.ActionLink("Anasayfaya Dön", "Index", "Home")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Bolum.BolumAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.yetki.yetkiadi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.kullaniciAdi)
+        </th>       
+        <th>
+            İşlemler
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bolum.BolumAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.yetki.yetkiadi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.kullaniciAdi)
+        </td>       
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

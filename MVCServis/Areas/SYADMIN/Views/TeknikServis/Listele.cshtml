@@ -1,0 +1,132 @@
+﻿@model IEnumerable<MVCServis.Areas.SYADMIN.Models.BankoGiris>
+
+@{
+    ViewBag.Title = "Listele";
+    Layout = "~/Areas/SYADMIN/Views/Shared/_LayoutSYadmin.cshtml";
+}
+
+<h2>Listele</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.grnt.GarantiAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mtip.MusteriTipi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.musteriAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tcNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telEv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telIs)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GSM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.adres)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.servisGirisTarih)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.servisGirisSaat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.urunKodu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.seriNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.imei)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.musteriSikayet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Aciklama)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.takipNo)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.grnt.GarantiAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mtip.MusteriTipi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.musteriAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tcNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.telEv)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.telIs)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GSM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.adres)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.servisGirisTarih)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.servisGirisSaat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.urunKodu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.seriNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.imei)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.musteriSikayet)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Aciklama)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.takipNo)
+        </td>*@
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })*@
+
+            @Html.ActionLink("Aktar", "Kaydet", new { id = item.id })
+        </td>
+    </tr>
+}
+
+</table>

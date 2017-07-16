@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="hastaneler">
+        <s:complexType />
+      </s:element>
+      <s:element name="hastanelerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="hastanelerResult" type="tns:ArrayOfB_TBL_HASTANELER" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfB_TBL_HASTANELER">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="B_TBL_HASTANELER" nillable="true" type="tns:B_TBL_HASTANELER" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="B_TBL_HASTANELER">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="HKODU" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HGRUPID" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="HADI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HCARI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HSEHIR" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HBOLGE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HADRES" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HDEPARTMAN1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HDEPARTMAN2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HDEPARTMAN3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HYETKILI1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HYETKILI2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HYETKILI3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HTEL1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HTEL2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HTEL3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HEMAIL1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HEMAIL2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HEMAIL3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HFAKS1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HFAKS2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HFAKS3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HCEP1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HCEP2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HCEP3" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HSAVEUSER" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HSAVEDATE" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="HEDITUSER" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HEDITDATE" nillable="true" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="hastanelerSoapIn">
+    <wsdl:part name="parameters" element="tns:hastaneler" />
+  </wsdl:message>
+  <wsdl:message name="hastanelerSoapOut">
+    <wsdl:part name="parameters" element="tns:hastanelerResponse" />
+  </wsdl:message>
+  <wsdl:portType name="TestSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="hastaneler">
+      <wsdl:input message="tns:hastanelerSoapIn" />
+      <wsdl:output message="tns:hastanelerSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TestSoap" type="tns:TestSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="hastaneler">
+      <soap:operation soapAction="http://tempuri.org/hastaneler" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TestSoap12" type="tns:TestSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="hastaneler">
+      <soap12:operation soapAction="http://tempuri.org/hastaneler" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Test">
+    <wsdl:port name="TestSoap" binding="tns:TestSoap">
+      <soap:address location="http://localhost:50225/Test.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TestSoap12" binding="tns:TestSoap12">
+      <soap12:address location="http://localhost:50225/Test.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

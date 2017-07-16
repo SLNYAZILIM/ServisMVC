@@ -1,0 +1,75 @@
+﻿@model MVCServis.Areas.SYADMIN.Models.Kullanicilar
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/SYADMIN/Views/Shared/_LayoutSYadmin.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Kullanicilar</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Bolum.BolumAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bolum.BolumAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.yetki.yetkiadi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.yetki.yetkiadi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kullaniciAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kullaniciAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sifre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sifre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.oluşturmaTarihi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.oluşturmaTarihi)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Anasayfaya Dön", "Index", "Home")
+            <br />
+            @Html.ActionLink("Listeye Git", "Liste")
+        </div>
+    }
+</div>

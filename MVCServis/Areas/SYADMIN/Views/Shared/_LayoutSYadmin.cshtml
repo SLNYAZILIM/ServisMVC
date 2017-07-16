@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>_LayoutSYadmin</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body style="background-color:#edf7f6">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="navbar-header bg-info">
+            <a class="navbar-brand" href="@Url.Action("Index","Home")">LCHAT-ADMIN</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse bg-info" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="#"><span class="glyphicon glyphicon-home"></span>Dashboard</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-calendar"></span>Calendar</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="glyphicon glyphicon-list-alt"></span>Widgets <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="http://www.jquery2dotnet.com">Action</a></li>
+                        <li><a href="http://www.jquery2dotnet.com">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">One more separated link</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="glyphicon glyphicon-search"></span>Search <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu" style="min-width: 300px;">
+                        <li>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form class="navbar-form navbar-left" role="search">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="Search" />
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-primary" type="button">
+                                                    Go!
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="glyphicon glyphicon-comment"></span>Chats <span class="label label-primary">42</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#"><span class="label label-warning">7:00 AM</span>Hi :)</a></li>
+                        <li><a href="#"><span class="label label-warning">8:00 AM</span>How are you?</a></li>
+                        <li><a href="#"><span class="label label-warning">9:00 AM</span>What are you doing?</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#" class="text-center">View All</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="glyphicon glyphicon-envelope"></span>Inbox <span class="label label-info">32</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#"><span class="label label-warning">4:00 AM</span>Favourites Snippet</a></li>
+                        <li><a href="#"><span class="label label-warning">4:30 AM</span>Email marketing</a></li>
+                        <li>
+                            <a href="#">
+                                <span class="label label-warning">5:00 AM</span>Subscriber focused email
+                                design
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="#" class="text-center">View All</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="glyphicon glyphicon-user">@Session["Kullanici"]</span><b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#"><span class="glyphicon glyphicon-user"></span>Profile</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-cog"></span>Settings</a></li>
+                        <li class="divider"></li>
+                        <li><a href="@Url.Action("Giris","Home")"><span class="glyphicon glyphicon-off"></span>Logout</a></li>
+                       
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+    </nav>
+    <div id="wrapper">
+        <div class="overlay"></div>
+
+        <!-- Sidebar -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+            <ul class="nav sidebar-nav">
+                <li class="sidebar-brand">
+                </li>
+                <li><a href="@Url.Action("Index","Home")">Anasayfa</a></li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Banko<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li class="dropdown-header"></li>
+                        <li><a href="@Url.Action("Index","BankoGiris")">Banko Anasayfa</a></li>
+                        <li><a href="@Url.Action("Create","BankoGiris")">Banko Oluştur</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kullanıcılar<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li class="dropdown-header"></li>
+                        <li><a href="@Url.Action("Liste","Kullanicilar")">Kullanicilar Anasayfa</a></li>
+                        <li><a href="@Url.Action("kaydet","Kullanicilar")">Kullanicilar Oluştur</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tekniker<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li class="dropdown-header"></li>
+                        <li><a href="@Url.Action("Index","Tekniker")">Tekniker Anasayfa</a></li>
+                        <li><a href="@Url.Action("Create","Tekniker")">Tekniker Oluştur</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Yetki<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li class="dropdown-header"></li>
+                        <li><a href="@Url.Action("Index","Yetkis")">Yetki Anasayfa</a></li>
+                        <li><a href="@Url.Action("Create","Yetkis")">Yetki Oluştur</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bölüm<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li class="dropdown-header"></li>
+                        <li><a href="@Url.Action("Index","Bolums")">Bolum Anasayfa</a></li>
+                        <li><a href="@Url.Action("Create","Bolums")">Bolums Oluştur</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Müsteri Tip<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li class="dropdown-header"></li>
+                        <li><a href="@Url.Action("Index","MusteriTip")">Müsteri Tip Anasayfa</a></li>
+                        <li><a href="@Url.Action("Create","MusteriTip")">Müsteri Tip Oluştur</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+            <span class="hamb-top"></span>
+            <span class="hamb-middle"></span>
+            <span class="hamb-bottom"></span>
+        </button>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+﻿@model MVCServis.Areas.SYADMIN.Models.tekniker
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/SYADMIN/Views/Shared/_LayoutSYadmin.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>tekniker</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.teknikerNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.teknikerNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.teknikerAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.teknikerAdi)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

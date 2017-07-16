@@ -1,0 +1,81 @@
+﻿@model IEnumerable<MVCServis.Areas.SYADMIN.Models.BankoGiris>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/SYADMIN/Views/Shared/_LayoutSYadmin.cshtml";
+}
+
+<h2>Index</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+<div>
+    <input id="Text1" name="Text" type="text" placeholder="Takip No" class="form-control"/>
+    <div>
+        <input type="submit" value="Ara" class="btn btn-success" />
+    </div>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.mtip.MusteriTipi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.musteriAdi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tcNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.telEv)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GSM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.adres)
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mtip.MusteriTipi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.musteriAdi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tcNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.telEv)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GSM)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.adres)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+}

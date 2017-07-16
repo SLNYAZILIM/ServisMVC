@@ -1,0 +1,111 @@
+﻿@model MVCServis.Areas.SYADMIN.Models.UserYorum
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>UserYorum</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <img src="@ViewBag.resim"
+                 alt="Alternate Text" class="img-responsive" />
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.userId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.userId, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.userId } })
+                @Html.ValidationMessageFor(model => model.userId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.userAdi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.userAdi, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.userAdi } })
+                @Html.ValidationMessageFor(model => model.userAdi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.tarih, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.tarih, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.tarih } })
+                @Html.ValidationMessageFor(model => model.tarih, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.yorum, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.yorum, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.yorum, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>*@
+        @if (Session["userbilgi"] != null)
+        {
+            <div class="well">
+                <h4>Yorum</h4>
+                <form role="form">
+                    <div class="form-group">
+                        <textarea id="yorumum" typeof="text" class="form-control" rows="3"></textarea>
+                        <button type="submit" id="gonder" class="btn btn-primary" style="margin-top:9px;">Yorum Yazın</button>
+                    </div>
+                </form>
+            </div>
+        }
+        else
+        {
+            <h2>Yorum yapabilmek için giriş yapmalısınız.</h2>
+            <p><a href="@Url.Action("UserGiris","UserG")">Giriş yapmak için tıklayın.</a></p>
+        }
+
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+        $(document).ready(
+            function () {
+                $("#gonder").click(
+                    function () {
+                        var yorumunuz = $("#yorumum").val();
+                        $.ajax(
+                            {
+                                url: '/UserYorum/YorumYap/',
+                                data: { yorumum: yorumunuz },
+                                type: 'POST',
+                                dataType: 'json',
+                                success: function (data) {
+                                    alert("İşlem başarılı" + " " + yorumunuz);
+                                }
+                            }
+                            );
+                    }
+                    );
+            }
+            )
+    </script>
+
+}
+
